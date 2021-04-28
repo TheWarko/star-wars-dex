@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import imgViewer from '../../assets/images/star_wars_heads.jpg'
 import imgTitle from '../../assets/images/star_wars_title.svg'
