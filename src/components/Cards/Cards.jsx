@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import {breakpoints} from '../../utils/breakpoints'
 import Card from '../Card/Card'
+import CardPlaceholder from '../Card/Card.placeholder'
 import DetailCard from '../DetailCard/DetailCard'
 import Filter from '../Filter/Filter'
 
@@ -53,7 +54,7 @@ const $CardCol = styled.div`
     }
     @media ${breakpoints.desktop}{
         width: 32%;
-        height: 215px;
+        height: 202px;
         margin-bottom: 10px;
     }
 `
@@ -65,6 +66,7 @@ const Cards = () => {
     const [filter, setFilter] = useState('people')
 
     useEffect(() => {
+        setCharacters('')
         fetch('https://swapi.dev/api/'+filter)
             .then((res) => res.json())
             .then((data) => {
@@ -81,30 +83,32 @@ const Cards = () => {
     }
 
     return (
-        characters ? (
-            <$Wrapper>
-                <$ContainerFilter>
-                    <Filter active={filter} setFilter={filterHandler} />
-                </$ContainerFilter>
-                <$CardsArea>
-                    <$ContainerCards>
-                        {
-                            characters.slice(0, 6).map((el, i) => {
-                                return (
-                                    <$CardCol key={i}>
-                                        <Card character={el} setCharacterActive={clickHandler} active={el == characterActive} />
-                                    </$CardCol>
-                                )
-                            })
-                        }
-                    </$ContainerCards>
-                    <$ContainerDetailCard>
-                        <DetailCard character={characterActive} />
-                    </$ContainerDetailCard>
-                </$CardsArea>
-            </$Wrapper>
-        ) : null
+        <$Wrapper>
+            <$ContainerFilter>
+                <Filter active={filter} setFilter={filterHandler} />
+            </$ContainerFilter>
+            <$CardsArea>
+                <$ContainerCards>
+                    {characters ? (
+                        characters.slice(0, 6).map((el, i) => {
+                            return (
+                                <$CardCol key={i}>
+                                    <Card character={el} setCharacterActive={clickHandler} active={el == characterActive} />
+                                </$CardCol>
+                            )
+                        })
+                    ) : ( 
+                        [...Array(6)].map((el, i) => <$CardCol key={i}><CardPlaceholder /></$CardCol>)
+                    )
+                }
+                </$ContainerCards>
+                <$ContainerDetailCard>
+                    <DetailCard character={characterActive} />
+                </$ContainerDetailCard>
+            </$CardsArea>
+        </$Wrapper>
     )
+
 }
 
 export default Cards
