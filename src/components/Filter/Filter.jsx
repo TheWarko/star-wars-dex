@@ -1,14 +1,14 @@
 import styled,{css} from 'styled-components'
 import iconCorrect from '../../assets/icons/correct.png'
 
-const $Filter = styled.div`
+const ScFilter = styled.div`
     label{
         font-size: 15px;
         font-weight: 700;
         color: #7C7C7C;
     }
 `
-const $ButtonFilter = styled.button`
+const ScButtonFilter = styled.button`
     color: ${props => props.theme.basicColor};
     font-weight: 700;
     border: 2px solid ${props => props.theme.basicColor};
@@ -27,7 +27,7 @@ const $ButtonFilter = styled.button`
         padding-left: 20px;
     `}
 `
-const $ButtonRed = styled($ButtonFilter)`
+const ScButtonRed = styled(ScButtonFilter)`
     color: ${props => props.theme.firstColor};
     border: 2px solid ${props => props.theme.firstColor};
     ${props => props.active && css`
@@ -35,7 +35,7 @@ const $ButtonRed = styled($ButtonFilter)`
         color: #fff;
     `}
 `
-const $ButtonBlue = styled($ButtonFilter)`
+const ScButtonBlue = styled(ScButtonFilter)`
     color: ${props => props.theme.secondColor};
     border: 2px solid ${props => props.theme.secondColor};
     ${props => props.active && css`
@@ -52,11 +52,11 @@ const Filter = (props) => {
     } = props
 
     return (
-        <$Filter>
+        <ScFilter>
             <label>Filtra per</label> 
-            <$ButtonRed active={active == 'people'} onClick={() => {setFilter('people')}} >People</$ButtonRed>
-            <$ButtonBlue active={active == 'species'} onClick={() => {setFilter('species')}}>Species</$ButtonBlue>
-        </$Filter>
+            <ScButtonRed active={active === 'people'} onClick={() => {setFilter('people')}} >People</ScButtonRed>
+            <ScButtonBlue active={active === 'species'} onClick={() => {setFilter('species')}}>Species</ScButtonBlue>
+        </ScFilter>
     )
 }
 

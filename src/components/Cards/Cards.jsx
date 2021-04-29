@@ -6,7 +6,7 @@ import CardPlaceholder from '../Card/Card.placeholder'
 import DetailCard from '../DetailCard/DetailCard'
 import Filter from '../Filter/Filter'
 
-const $Wrapper = styled.div`
+const ScWrapper = styled.div`
     width: 100%;
     max-width: 1024px;
     padding: 0 3.5vw 3.5vw;
@@ -15,17 +15,17 @@ const $Wrapper = styled.div`
         padding: 0 64px 64px;
     }
 `
-const $CardsArea = styled.div`
+const ScCardsArea = styled.div`
     @media ${breakpoints.desktop}{
         display: flex;
         justify-content: space-between;
     }
 `
-const $ContainerFilter = styled.div`
+const ScContainerFilter = styled.div`
     margin: 30px 0;
     text-align: left;
 `
-const $ContainerCards = styled.div`
+const ScContainerCards = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -34,14 +34,14 @@ const $ContainerCards = styled.div`
         max-width: 630px;
     }
 `
-const $ContainerDetailCard = styled.div`
+const ScContainerDetailCard = styled.div`
     width: 100%;
     @media ${breakpoints.desktop}{
         width: 266px;
         padding-left: 13px;
     }
 `
-const $CardCol = styled.div`
+const ScCardCol = styled.div`
     margin-bottom: 5vw;
     display: flex;
     justify-content: center;
@@ -83,30 +83,30 @@ const Cards = () => {
     }
 
     return (
-        <$Wrapper>
-            <$ContainerFilter>
+        <ScWrapper>
+            <ScContainerFilter>
                 <Filter active={filter} setFilter={filterHandler} />
-            </$ContainerFilter>
-            <$CardsArea>
-                <$ContainerCards>
+            </ScContainerFilter>
+            <ScCardsArea>
+                <ScContainerCards>
                     {characters ? (
                         characters.slice(0, 6).map((el, i) => {
                             return (
-                                <$CardCol key={i}>
-                                    <Card character={el} setCharacterActive={clickHandler} active={el == characterActive} />
-                                </$CardCol>
+                                <ScCardCol key={i}>
+                                    <Card character={el} setCharacterActive={clickHandler} active={el === characterActive} />
+                                </ScCardCol>
                             )
                         })
                     ) : ( 
-                        [...Array(6)].map((el, i) => <$CardCol key={i}><CardPlaceholder /></$CardCol>)
+                        [...Array(6)].map((el, i) => <ScCardCol key={i}><CardPlaceholder /></ScCardCol>)
                     )
                 }
-                </$ContainerCards>
-                <$ContainerDetailCard>
+                </ScContainerCards>
+                <ScContainerDetailCard>
                     <DetailCard character={characterActive} />
-                </$ContainerDetailCard>
-            </$CardsArea>
-        </$Wrapper>
+                </ScContainerDetailCard>
+            </ScCardsArea>
+        </ScWrapper>
     )
 
 }

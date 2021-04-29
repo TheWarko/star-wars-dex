@@ -3,7 +3,7 @@ import {breakpoints} from '../../utils/breakpoints'
 import imgViewer from '../../assets/images/star_wars_heads.jpg'
 import imgTitle from '../../assets/images/star_wars_title.svg'
 
-const $Viewer = styled.div`
+const ScViewer = styled.div`
     height: 30vh;
     width: 100%;
     background-image: url(${imgViewer});
@@ -21,7 +21,7 @@ const $Viewer = styled.div`
     }
 `
 
-const $TitleBox = styled.img`
+const ScTitleBox = styled.img`
     background-color: #fff;
     border: 2px solid #CCCCCC;
     max-width: 80%;
@@ -29,9 +29,9 @@ const $TitleBox = styled.img`
 
 const Viewer = () => {
     return (
-        <$Viewer>
-            <$TitleBox src={imgTitle} alt="STAR WARS" />
-        </$Viewer>
+        <ScViewer>
+            <ScTitleBox src={imgTitle} alt="STAR WARS" />
+        </ScViewer>
     )
 }
 

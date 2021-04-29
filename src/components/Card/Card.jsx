@@ -7,7 +7,7 @@ import {ReactComponent as IconBug} from '../../assets/icons/bug.svg'
 
 
 
-const $Card = styled.div`
+const ScCard = styled.div`
     background-color: #fff;
     border: 1px solid #D5DADF; 
     text-align: center;
@@ -20,11 +20,11 @@ const $Card = styled.div`
         border: 2px solid ${props => props.theme.basicColor}; 
     `}
 `
-const $Name = styled.p`
+const ScName = styled.p`
     font-size: 15px;
     font-weight: 500;
 `
-const $Gender = styled.p`
+const ScGender = styled.p`
     font-size: 15px;
     color: #7C7C7C;
 `
@@ -56,13 +56,13 @@ const Card = (props) => {
     }
 
     return (
-        <$Card onClick={() => setCharacterActive(character)} active={props.active} >
+        <ScCard onClick={() => setCharacterActive(character)} active={props.active} >
             <div>
                 <SwitchCase value={character.gender || character.classification} />
-                <$Name>{character.name}</$Name>
-                <$Gender>{character.gender || character.classification}</$Gender>
+                <ScName>{character.name}</ScName>
+                <ScGender>{character.gender || character.classification}</ScGender>
             </div>
-        </$Card>
+        </ScCard>
     )
 }
 

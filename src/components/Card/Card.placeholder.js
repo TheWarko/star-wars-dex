@@ -1,6 +1,6 @@
 import styled,{keyframes} from 'styled-components'
 
-const $CardPlaceholder = styled.div`
+const ScCardPlaceholder = styled.div`
     position: relative;
     height: 100%;
     width: 100%;
@@ -17,7 +17,7 @@ const loading = keyframes`
     left: 100%;
   }
 `
-const $CardPlaceholderInner = styled.div`
+const ScCardPlaceholderInner = styled.div`
     position: absolute;
     left: -45%;
     height: 100%;
@@ -31,9 +31,9 @@ const $CardPlaceholderInner = styled.div`
 
 const CardPlaceholder = () => {
     return (
-        <$CardPlaceholder>
-            <$CardPlaceholderInner />
-        </$CardPlaceholder>
+        <ScCardPlaceholder>
+            <ScCardPlaceholderInner />
+        </ScCardPlaceholder>
     )
 }
 

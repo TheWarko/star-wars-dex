@@ -6,7 +6,7 @@ import {ReactComponent as IconRobot} from '../../assets/icons/robot-1.svg'
 import {ReactComponent as IconUfo} from '../../assets/icons/ufo.svg'
 import {ReactComponent as IconBug} from '../../assets/icons/bug.svg'
 
-const $DetailCard = styled.div`
+const ScDetailCard = styled.div`
     background-color: #fff;
     border: 1px solid #D5DADF; 
     width: 100%;
@@ -14,7 +14,7 @@ const $DetailCard = styled.div`
         border: 2px solid ${props => props.theme.basicColor}; 
     `}
 `
-const $Placeholder = styled.div`
+const ScPlaceholder = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,27 +22,27 @@ const $Placeholder = styled.div`
     min-height: 365px;
     text-align: center;
 `
-const $Content = styled.div`
+const ScContent = styled.div`
     text-align: left;
     padding: 50px 30px 30px;
 `
-const $PlaceholderText = styled.p`
+const ScPlaceholderText = styled.p`
     font-style: italic;
     color: #c7c7c7;
     padding: 0 20px;
 `
-const $Name = styled.p`
+const ScName = styled.p`
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 30px;
 `
-const $More = styled.div`
+const ScMore = styled.div`
     font-size: 15px;
     line-height: 25px;
     color: #7C7C7C;
     p{ margin: 0}
 `
-const ContentFooter = styled.div`
+const ScContentFooter = styled.div`
     background-color: #fbfbfb;
     display: flex;
     &> div{
@@ -50,12 +50,12 @@ const ContentFooter = styled.div`
         padding: 20px;
     }
 `
-const ContentFooterValue = styled.p`
+const ScContentFooterValue = styled.p`
     color: red;
     margin: 0;
     line-height: 25px;
 `
-const ContentFooterLabel = styled.p`
+const ScContentFooterLabel = styled.p`
     font-weight: 700;
     margin: 0;
     line-height: 25px;
@@ -88,40 +88,40 @@ const DetailCard = (props) => {
     }
 
     return (
-        <$DetailCard active={character ? true : false} >
+        <ScDetailCard active={character ? true : false} >
             {
                 character ?
                     <>
-                        <$Content>
+                        <ScContent>
                             <SwitchCase value={character.gender || character.classification} />
-                            <$Name>{character.name}</$Name>
-                            <$More>
+                            <ScName>{character.name}</ScName>
+                            <ScMore>
                                 <p>Hair: {character.hair_color}</p>
                                 <p>Eye: {character.eye_color}</p>
                                 <p>Birth year: {character.birth_year}</p>
-                            </$More>
-                        </$Content>
-                        <ContentFooter>
+                            </ScMore>
+                        </ScContent>
+                        <ScContentFooter>
                             <div>
-                                <ContentFooterValue>{character.height}</ContentFooterValue>
-                                <ContentFooterLabel>height</ContentFooterLabel>
+                                <ScContentFooterValue>{character.height}</ScContentFooterValue>
+                                <ScContentFooterLabel>height</ScContentFooterLabel>
                             </div>
                             <div>
-                                <ContentFooterValue>{character.mass}</ContentFooterValue>
-                                <ContentFooterLabel>mass</ContentFooterLabel>
+                                <ScContentFooterValue>{character.mass}</ScContentFooterValue>
+                                <ScContentFooterLabel>mass</ScContentFooterLabel>
                             </div>
-                        </ContentFooter>
+                        </ScContentFooter>
                     </>
                     :
-                    <$Placeholder>
+                    <ScPlaceholder>
                         <div>
                             <IconQuestion width="64" stroke="#c7c7c7" fill="#c7c7c7" />
-                            <$PlaceholderText>Seleziona un personaggio per guardare la scheda</$PlaceholderText>
+                            <ScPlaceholderText>Seleziona un personaggio per guardare la scheda</ScPlaceholderText>
                         </div>
-                    </$Placeholder>
+                    </ScPlaceholder>
 
             }
-        </$DetailCard>
+        </ScDetailCard>
     )
 }
 
