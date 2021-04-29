@@ -67,7 +67,7 @@ const Cards = () => {
 
     useEffect(() => {
         setCharacters('')
-        fetch('https://swapi.dev/api/'+filter)
+        fetch('https://swapi.dev/api/'+filter+'/')
             .then((res) => res.json())
             .then((data) => {
                 setCharacters(data.results)
