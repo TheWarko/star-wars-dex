@@ -47,7 +47,7 @@ const Card = (props) => {
             case 'mammal':
                 return (<IconFemale width="32" fill="#16a7cd" stroke="#16a7cd" />)
             case 'artificial':
-                return (<IconRobot width="32" fill="#ff6458" stroke="#ff6458" />)
+                return (<IconRobot width="32" fill="#16a7cd" stroke="#16a7cd" />)
             case 'gastropod':
                 return (<IconBug width="32" fill="#16a7cd" stroke="#16a7cd" />)
             default:

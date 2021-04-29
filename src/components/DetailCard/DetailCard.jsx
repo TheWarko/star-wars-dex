@@ -29,6 +29,7 @@ const $Content = styled.div`
 const $PlaceholderText = styled.p`
     font-style: italic;
     color: #c7c7c7;
+    padding: 0 20px;
 `
 const $Name = styled.p`
     font-size: 20px;
@@ -78,7 +79,7 @@ const DetailCard = (props) => {
             case 'mammal':
                 return (<IconFemale width="48" fill="#16a7cd" stroke="#16a7cd" />)
             case 'artificial':
-                return (<IconRobot width="48" fill="#ff6458" stroke="#ff6458" />)
+                return (<IconRobot width="48" fill="#16a7cd" stroke="#16a7cd" />)
             case 'gastropod':
                 return (<IconBug width="48" fill="#16a7cd" stroke="#16a7cd" />)
             default:
@@ -114,7 +115,7 @@ const DetailCard = (props) => {
                     :
                     <$Placeholder>
                         <div>
-                            <IconQuestion width="64" stroke="#c7c7c7" strokeWidth="2" fill="#c7c7c7" />
+                            <IconQuestion width="64" stroke="#c7c7c7" fill="#c7c7c7" />
                             <$PlaceholderText>Seleziona un personaggio per guardare la scheda</$PlaceholderText>
                         </div>
                     </$Placeholder>
