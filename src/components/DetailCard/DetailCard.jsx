@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import styled,{ css } from 'styled-components'
 import { ReactComponent as IconQuestion } from '../../assets/icons/question.svg'
 import {ReactComponent as IconMale} from '../../assets/icons/male-sign.svg'
@@ -12,7 +11,7 @@ const $DetailCard = styled.div`
     border: 1px solid #D5DADF; 
     width: 100%;
     ${props => props.active && css`
-        border: 2px solid #707070; 
+        border: 2px solid ${props => props.theme.basicColor}; 
     `}
 `
 const $Placeholder = styled.div`

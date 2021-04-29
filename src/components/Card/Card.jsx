@@ -17,7 +17,7 @@ const $Card = styled.div`
     width: 100%;
     cursor: pointer;
     ${props => props.active && css`
-        border: 2px solid #707070; 
+        border: 2px solid ${props => props.theme.basicColor}; 
     `}
 `
 const $Name = styled.p`
