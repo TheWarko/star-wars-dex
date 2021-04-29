@@ -1,8 +1,7 @@
 # STAR WARS DEX
 Dictionary of Star wars characters. Simple React web-application
 
-![](https://github.com/TheWarko/star-wars-dex/blob/master/public/preview.gif)
-
+![](https://github.com/TheWarko/star-wars-dex/blob/main/public/preview.gif)
 
 ## Technologies
 * ReactJs
