@@ -39,19 +39,19 @@ const Card = (props) => {
     const SwitchCase = (props) => {
         switch (props.value) {
             case 'male':
-                return (<IconMale width="32" stroke="#ff6458" strokeWidth="2" />)
+                return (<IconMale width="32" fill="#ff6458" stroke="#ff6458" viewBox="-2 0 65 60" />)
             case 'female':
-                return (<IconFemale width="32" stroke="#ff6458" strokeWidth="2" />)
+                return (<IconFemale width="32" fill="#ff6458" stroke="#ff6458" />)
             case 'sentient':
-                return (<IconUfo width="32" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconUfo width="32"  fill="#16a7cd" stroke="#16a7cd" />)
             case 'mammal':
-                return (<IconFemale width="32" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconFemale width="32" fill="#16a7cd" stroke="#16a7cd" />)
             case 'artificial':
-                return (<IconRobot width="32" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconRobot width="32" fill="#ff6458" stroke="#ff6458" />)
             case 'gastropod':
-                return (<IconBug width="32" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconBug width="32" fill="#16a7cd" stroke="#16a7cd" />)
             default:
-                return (<IconRobot width="32" stroke="#ff6458" strokeWidth="2" />)
+                return (<IconRobot width="32" fill="#ff6458" stroke="#ff6458" />)
         }
     }
 

@@ -1,5 +1,5 @@
 import styled,{ css } from 'styled-components'
-import { ReactComponent as IconQuestion } from '../../assets/icons/question.svg'
+import {ReactComponent as IconQuestion } from '../../assets/icons/question.svg'
 import {ReactComponent as IconMale} from '../../assets/icons/male-sign.svg'
 import {ReactComponent as IconFemale} from '../../assets/icons/female-sign.svg'
 import {ReactComponent as IconRobot} from '../../assets/icons/robot-1.svg'
@@ -67,23 +67,22 @@ const DetailCard = (props) => {
         character
     } = props
 
-    
     const SwitchCase = (props) => {
         switch (props.value) {
             case 'male':
-                return (<IconMale width="48" stroke="#ff6458" strokeWidth="2" />)
+                return (<IconMale width="48" fill="#ff6458" stroke="#ff6458" viewBox="-2 0 65 60" />)
             case 'female':
-                return (<IconFemale width="48" stroke="#ff6458" strokeWidth="2" />)
+                return (<IconFemale width="48" fill="#ff6458" stroke="#ff6458" />)
             case 'sentient':
-                return (<IconUfo width="48" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconUfo width="48"  fill="#16a7cd" stroke="#16a7cd" />)
             case 'mammal':
-                return (<IconFemale width="48" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconFemale width="48" fill="#16a7cd" stroke="#16a7cd" />)
             case 'artificial':
-                return (<IconRobot width="48" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconRobot width="48" fill="#ff6458" stroke="#ff6458" />)
             case 'gastropod':
-                return (<IconBug width="48" stroke="#16a7cd" strokeWidth="2" />)
+                return (<IconBug width="48" fill="#16a7cd" stroke="#16a7cd" />)
             default:
-                return (<IconRobot width="48" stroke="#ff6458" strokeWidth="2" />)
+                return (<IconRobot width="48" fill="#ff6458" stroke="#ff6458" />)
         }
     }
 
