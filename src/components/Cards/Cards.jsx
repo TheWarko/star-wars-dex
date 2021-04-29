@@ -1,3 +1,4 @@
+import {useState,useEffect} from 'react'
 import styled from 'styled-components'
 import Card from '../Card/Card'
 import DetailCard from '../DetailCard/DetailCard'
@@ -52,32 +53,43 @@ const $CardCol = styled.div`
 `
 
 const Cards = () => {
+
+    const [characters,setCharacters] = useState(null)
+    const [characterActive,setCharacterActive] = useState(null)
+    
+    useEffect(() => {
+        fetch('https://swapi.dev/api/people/')
+        // fetch('https://swapi.dev/api/species/')
+        .then((res) => res.json())
+        .then((data) => {
+            setCharacters(data.results)
+            console.log(data.results)
+        })
+    }, [])
+
+    const clickHandler = (char) => {
+        setCharacterActive(char)
+    }
+
     return (
-        <$Cards>
-            <$ContainerCards>
-                <$CardCol>
-                    <Card />
-                </$CardCol>
-                <$CardCol>
-                    <Card />
-                </$CardCol>
-                <$CardCol>
-                    <Card />
-                </$CardCol>
-                <$CardCol>
-                    <Card />
-                </$CardCol>
-                <$CardCol>
-                    <Card />
-                </$CardCol>
-                <$CardCol>
-                    <Card />
-                </$CardCol>
-            </$ContainerCards> 
-            <$ContainerDetailCard>
-                <DetailCard />
-            </$ContainerDetailCard> 
-        </$Cards>
+        characters ? (
+            <$Cards>
+                <$ContainerCards>
+                    {
+                        characters.slice(0,6).map((el,i) => {
+                            return (
+                                <$CardCol key={i}>
+                                    <Card character={el} setCharacterActive={clickHandler} active={el == characterActive} />
+                                </$CardCol>
+                            )
+                        })
+                    }
+                </$ContainerCards> 
+                <$ContainerDetailCard>
+                    <DetailCard character={characterActive} />
+                </$ContainerDetailCard> 
+            </$Cards>
+        ) : null
     )
 }
 
