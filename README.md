@@ -9,7 +9,7 @@ Dictionary of Star wars characters. Simple React web-application
 * styled-components
 
 ## Demo
-Here the [demo link](https://).
+Here the [demo link](https://vigorous-roentgen-8c4e8f.netlify.app/) on Netlify.
 
 <br />
 <br />
