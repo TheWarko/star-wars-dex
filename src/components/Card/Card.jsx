@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled,{ css } from 'styled-components'
 import {ReactComponent as IconMale} from '../../assets/icons/male-sign.svg'
 import {ReactComponent as IconFemale} from '../../assets/icons/female-sign.svg'
@@ -56,7 +57,7 @@ const Card = (props) => {
     }
 
     return (
-        <ScCard onClick={() => setCharacterActive(character)} active={props.active} >
+        <ScCard onClick={() => setCharacterActive(character)} active={props.active} data-testid="card" >
             <div>
                 <SwitchCase value={character.gender || character.classification} />
                 <ScName>{character.name}</ScName>
@@ -67,3 +68,9 @@ const Card = (props) => {
 }
 
 export default Card
+
+
+Card.propTypes = {
+    character: PropTypes.object,
+    setCharacterActive: PropTypes.func,
+}

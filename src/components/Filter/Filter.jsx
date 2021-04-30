@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled,{css} from 'styled-components'
 import iconCorrect from '../../assets/icons/correct.png'
 
@@ -54,10 +55,16 @@ const Filter = (props) => {
     return (
         <ScFilter>
             <label>Filtra per</label> 
-            <ScButtonRed active={active === 'people'} onClick={() => {setFilter('people')}} >People</ScButtonRed>
-            <ScButtonBlue active={active === 'species'} onClick={() => {setFilter('species')}}>Species</ScButtonBlue>
+            <ScButtonRed active={active === 'people'} onClick={() => {setFilter('people')}} data-testid="filter-people" >People</ScButtonRed>
+            <ScButtonBlue active={active === 'species'} onClick={() => {setFilter('species')}} data-testid="filter-species" >Species</ScButtonBlue>
         </ScFilter>
     )
 }
 
 export default Filter
+
+
+Filter.propTypes = {
+    active: PropTypes.string,
+    setFilter: PropTypes.func,
+}

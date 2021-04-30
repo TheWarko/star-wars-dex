@@ -100,7 +100,7 @@ const Cards = () => {
                             )
                         })
                     ) : ( 
-                        [...Array(6)].map((el, i) => <ScCardCol key={i}><CardPlaceholder /></ScCardCol>)
+                        [...Array(6)].map((el, i) => <ScCardCol key={i}><CardPlaceholder data-testid="card-placeholder" /></ScCardCol>)
                     )
                 }
                 </ScContainerCards>

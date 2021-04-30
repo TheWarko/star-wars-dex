@@ -1,10 +1,11 @@
-import styled,{ css } from 'styled-components'
-import {ReactComponent as IconQuestion } from '../../assets/icons/question.svg'
-import {ReactComponent as IconMale} from '../../assets/icons/male-sign.svg'
-import {ReactComponent as IconFemale} from '../../assets/icons/female-sign.svg'
-import {ReactComponent as IconRobot} from '../../assets/icons/robot-1.svg'
-import {ReactComponent as IconUfo} from '../../assets/icons/ufo.svg'
-import {ReactComponent as IconBug} from '../../assets/icons/bug.svg'
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components'
+import { ReactComponent as IconQuestion } from '../../assets/icons/question.svg'
+import { ReactComponent as IconMale } from '../../assets/icons/male-sign.svg'
+import { ReactComponent as IconFemale } from '../../assets/icons/female-sign.svg'
+import { ReactComponent as IconRobot } from '../../assets/icons/robot-1.svg'
+import { ReactComponent as IconUfo } from '../../assets/icons/ufo.svg'
+import { ReactComponent as IconBug } from '../../assets/icons/bug.svg'
 
 const ScDetailCard = styled.div`
     background-color: #fff;
@@ -83,7 +84,7 @@ const DetailCard = (props) => {
             case 'female':
                 return (<IconFemale width="48" fill="#ff6458" stroke="#ff6458" />)
             case 'sentient':
-                return (<IconUfo width="48"  fill="#16a7cd" stroke="#16a7cd" />)
+                return (<IconUfo width="48" fill="#16a7cd" stroke="#16a7cd" />)
             case 'mammal':
                 return (<IconFemale width="48" fill="#16a7cd" stroke="#16a7cd" />)
             case 'artificial':
@@ -97,13 +98,10 @@ const DetailCard = (props) => {
 
     return (
         <ScDetailCard active={character ? true : false} >
-            { 
-                // TODO: use filter to show People or Species Detail-info
-            }
             {
                 character ?
-                        filter === 'people' ? (
-                            <>
+                    filter === 'people' ? (
+                        <>
                             <ScContent>
                                 <SwitchCase value={character.gender} />
                                 <ScName>{character.name}</ScName>
@@ -123,9 +121,9 @@ const DetailCard = (props) => {
                                     <ScContentFooterLabel>mass</ScContentFooterLabel>
                                 </div>
                             </ScContentFooter>
-                            </>
-                        ) : (
-                            <>
+                        </>
+                    ) : (
+                        <>
                             <ScContent>
                                 <SwitchCase value={character.classification} />
                                 <ScName>{character.name}</ScName>
@@ -134,7 +132,11 @@ const DetailCard = (props) => {
                                     <p>Language: {character.language}</p>
                                     <p>
                                         <span>Skin color: </span>
-                                        <ScContentList>{(character.skin_colors).replaceAll(', ','\n')}</ScContentList>
+                                        <ScContentList>
+                                            {character.skin_colors ? 
+                                                (character.skin_colors).replace('/, /g', '\n') 
+                                            : null}
+                                        </ScContentList>
                                     </p>
                                 </ScMore>
                             </ScContent>
@@ -148,8 +150,8 @@ const DetailCard = (props) => {
                                     <ScContentFooterLabel>designation</ScContentFooterLabel>
                                 </div>
                             </ScContentFooter>
-                            </>
-                        )
+                        </>
+                    )
                     :
                     <ScPlaceholder>
                         <div>
@@ -164,3 +166,9 @@ const DetailCard = (props) => {
 }
 
 export default DetailCard
+
+
+DetailCard.propTypes = {
+    character: PropTypes.object,
+    filter: PropTypes.string,
+}
