@@ -26,6 +26,12 @@ const ScContent = styled.div`
     text-align: left;
     padding: 50px 30px 30px;
 `
+const ScContentList = styled.span`
+    white-space: pre-wrap;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1.4;
+`
 const ScPlaceholderText = styled.p`
     font-style: italic;
     color: #c7c7c7;
@@ -51,7 +57,8 @@ const ScContentFooter = styled.div`
     }
 `
 const ScContentFooterValue = styled.p`
-    color: red;
+    color: ${props => props.filter === 'people' ? props.theme.firstColor : props.theme.secondColor};
+    font-weight: 700;
     margin: 0;
     line-height: 25px;
 `
@@ -65,7 +72,8 @@ const ScContentFooterLabel = styled.p`
 const DetailCard = (props) => {
 
     const {
-        character
+        character,
+        filter
     } = props
 
     const SwitchCase = (props) => {
@@ -89,29 +97,59 @@ const DetailCard = (props) => {
 
     return (
         <ScDetailCard active={character ? true : false} >
+            { 
+                // TODO: use filter to show People or Species Detail-info
+            }
             {
                 character ?
-                    <>
-                        <ScContent>
-                            <SwitchCase value={character.gender || character.classification} />
-                            <ScName>{character.name}</ScName>
-                            <ScMore>
-                                <p>Hair: {character.hair_color}</p>
-                                <p>Eye: {character.eye_color}</p>
-                                <p>Birth year: {character.birth_year}</p>
-                            </ScMore>
-                        </ScContent>
-                        <ScContentFooter>
-                            <div>
-                                <ScContentFooterValue>{character.height}</ScContentFooterValue>
-                                <ScContentFooterLabel>height</ScContentFooterLabel>
-                            </div>
-                            <div>
-                                <ScContentFooterValue>{character.mass}</ScContentFooterValue>
-                                <ScContentFooterLabel>mass</ScContentFooterLabel>
-                            </div>
-                        </ScContentFooter>
-                    </>
+                        filter === 'people' ? (
+                            <>
+                            <ScContent>
+                                <SwitchCase value={character.gender} />
+                                <ScName>{character.name}</ScName>
+                                <ScMore>
+                                    <p>Hair: {character.hair_color}</p>
+                                    <p>Eye: {character.eye_color}</p>
+                                    <p>Birth year: {character.birth_year}</p>
+                                </ScMore>
+                            </ScContent>
+                            <ScContentFooter>
+                                <div>
+                                    <ScContentFooterValue filter={filter} >{character.height}</ScContentFooterValue>
+                                    <ScContentFooterLabel>height</ScContentFooterLabel>
+                                </div>
+                                <div>
+                                    <ScContentFooterValue filter={filter} >{character.mass}</ScContentFooterValue>
+                                    <ScContentFooterLabel>mass</ScContentFooterLabel>
+                                </div>
+                            </ScContentFooter>
+                            </>
+                        ) : (
+                            <>
+                            <ScContent>
+                                <SwitchCase value={character.classification} />
+                                <ScName>{character.name}</ScName>
+                                <ScMore>
+                                    <p>Classification: {character.classification}</p>
+                                    <p>Language: {character.language}</p>
+                                    <p>
+                                        <span>Skin color: </span>
+                                        <ScContentList>{(character.skin_colors).replaceAll(', ','\n')}</ScContentList>
+                                    </p>
+                                </ScMore>
+                            </ScContent>
+                            <ScContentFooter>
+                                <div>
+                                    <ScContentFooterValue filter={filter} >{character.average_lifespan}</ScContentFooterValue>
+                                    <ScContentFooterLabel>lifespan</ScContentFooterLabel>
+                                </div>
+                                <div>
+                                    <ScContentFooterValue filter={filter} >{character.designation}</ScContentFooterValue>
+                                    <ScContentFooterLabel>designation</ScContentFooterLabel>
+                                </div>
+                            </ScContentFooter>
+                            </>
+                        )
                     :
                     <ScPlaceholder>
                         <div>

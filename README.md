@@ -1,5 +1,5 @@
 # STAR WARS DEX
-Dictionary of Star wars characters. Simple React web-application
+Dictionary of Star Wars characters. Simple React web-application.
 
 ![](https://github.com/TheWarko/star-wars-dex/blob/main/public/preview.gif)
 
@@ -7,6 +7,9 @@ Dictionary of Star wars characters. Simple React web-application
 * ReactJs
 * create-react-app
 * styled-components
+
+## API
+Data is retrieved via SWAPI public APIs: https://swapi.dev/ .
 
 ## Demo
 Here the [demo link](https://vigorous-roentgen-8c4e8f.netlify.app/) on Netlify.

@@ -19,6 +19,7 @@ const ScCardsArea = styled.div`
     @media ${breakpoints.desktop}{
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
     }
 `
 const ScContainerFilter = styled.div`
@@ -72,6 +73,7 @@ const Cards = () => {
             .then((data) => {
                 setCharacters(data.results)
             })
+            .catch(err => console.error(err))
     }, [filter])
 
     const clickHandler = (charac) => {
@@ -103,7 +105,7 @@ const Cards = () => {
                 }
                 </ScContainerCards>
                 <ScContainerDetailCard>
-                    <DetailCard character={characterActive} />
+                    <DetailCard character={characterActive} filter={filter} />
                 </ScContainerDetailCard>
             </ScCardsArea>
         </ScWrapper>
