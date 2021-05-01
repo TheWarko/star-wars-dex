@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import DetailCard from './DetailCard'
 
+
 describe('DetailCard', () => {
 
     const obj1 = {

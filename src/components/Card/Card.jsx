@@ -1,34 +1,10 @@
 import PropTypes from 'prop-types';
-import styled,{ css } from 'styled-components'
+import * as S from './Card.styles'
 import {ReactComponent as IconMale} from '../../assets/icons/male-sign.svg'
 import {ReactComponent as IconFemale} from '../../assets/icons/female-sign.svg'
 import {ReactComponent as IconRobot} from '../../assets/icons/robot-1.svg'
 import {ReactComponent as IconUfo} from '../../assets/icons/ufo.svg'
 import {ReactComponent as IconBug} from '../../assets/icons/bug.svg'
-
-
-
-const ScCard = styled.div`
-    background-color: #fff;
-    border: 1px solid #D5DADF; 
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    cursor: pointer;
-    ${props => props.active && css`
-        border: 2px solid ${props => props.theme.basicColor}; 
-    `}
-`
-const ScName = styled.p`
-    font-size: 15px;
-    font-weight: 500;
-`
-const ScGender = styled.p`
-    font-size: 15px;
-    color: #7C7C7C;
-`
 
 
 const Card = (props) => {
@@ -57,13 +33,13 @@ const Card = (props) => {
     }
 
     return (
-        <ScCard onClick={() => setCharacterActive(character)} active={props.active} data-testid="card" >
+        <S.Card onClick={() => setCharacterActive(character)} active={props.active} data-testid="card" >
             <div>
                 <SwitchCase value={character.gender || character.classification} />
-                <ScName>{character.name}</ScName>
-                <ScGender>{character.gender || character.classification}</ScGender>
+                <S.Name>{character.name}</S.Name>
+                <S.Gender>{character.gender || character.classification}</S.Gender>
             </div>
-        </ScCard>
+        </S.Card>
     )
 }
 

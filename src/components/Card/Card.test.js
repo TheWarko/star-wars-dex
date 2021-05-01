@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import Card from './Card'
 
+
 describe('Card', () => {
 
     const obj = {
