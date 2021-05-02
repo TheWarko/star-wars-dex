@@ -17,8 +17,9 @@ describe('Card', () => {
 
     test('calls onClick prop when clicked', () => {
         const handleClick = jest.fn()
-        render(<Card character={obj} setCharacterActive={handleClick} active={false} placeholder="clickme" />)
-        fireEvent.click(screen.getByTestId('card'))
+        const {getByTestId} = render(<Card character={obj} setCharacterActive={handleClick} active={false} placeholder="clickme" />)
+        fireEvent.click(getByTestId('card'))
+        expect(handleClick).toHaveBeenCalled();
         expect(handleClick).toHaveBeenCalledTimes(1)
     })
 

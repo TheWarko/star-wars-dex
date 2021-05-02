@@ -16,6 +16,7 @@ describe('DetailCard', () => {
         name : 'Mario Rossi',
         classification : 'blond',
         language : 'italian',
+        // skin_colors : 'rosso, giallo, rosa, nero, blu',  //Note: String.prototype.replaceAll is not implemented in Node.js (at least as of version v14.15.0)
         average_lifespan : '100',
         designation : '50'
     }
@@ -24,6 +25,8 @@ describe('DetailCard', () => {
         const { getByText } = render(<DetailCard filter="people" character={obj1} />)
         expect( getByText('Mario Rossi') ).toBeInTheDocument();
         expect( getByText('Hair: blond') ).toBeInTheDocument();
+        expect( getByText('Eye: blue') ).toBeInTheDocument();
+        expect( getByText('Birth year: 2000') ).toBeInTheDocument();
         expect( getByText('200') ).toBeInTheDocument();
         expect( getByText('80') ).toBeInTheDocument();
     })      
@@ -32,6 +35,8 @@ describe('DetailCard', () => {
         const { getByText } = render(<DetailCard filter="species" character={obj2} />)
         expect( getByText('Mario Rossi') ).toBeInTheDocument();
         expect( getByText('Classification: blond') ).toBeInTheDocument();
+        expect( getByText('Language: italian') ).toBeInTheDocument();
+        // expect( getByText('Skin color: rosso\ngiallo\nrosa\nnero\nblu') ).toBeInTheDocument();   //Note: String.prototype.replaceAll is not implemented in Node.js (at least as of version v14.15.0)
         expect( getByText('100') ).toBeInTheDocument();
         expect( getByText('50') ).toBeInTheDocument();
     })      
