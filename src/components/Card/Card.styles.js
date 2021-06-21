@@ -31,6 +31,7 @@ export const CardPlaceholder = styled.div`
     position: relative;
     height: 100%;
     width: 100%;
+    min-height: 30px;
     background-color: rgb(255,255,255);
     border: 1px solid #D5DADF; 
     z-index: 44;
