@@ -1,10 +1,5 @@
 import Filter from './Filter'
 
-// [themeDecorator] to import styled-components theme styles in storybook (N.B. include it only one time in project)
-import { addDecorator } from "@storybook/react"
-import themeDecorator from "../../../.storybook/themeDecorator"
-addDecorator(themeDecorator);
-
 
 export default {
     title: 'Components/Filter',
